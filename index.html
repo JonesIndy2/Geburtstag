@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Geburtstag</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin-bottom: 20px;
+    width: 100%;
+    
+}
+
+.radio-group label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, 
+        #FF0000, #FF7F00, #FFFF00, 
+        #00FF00, #0000FF, #4B0082, #8B00FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+    animation: rainbowanim 10s ease infinite;
+    text-align: center;
+}
+
+@keyframes rainbowanim {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.event-info {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.event-row {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.event-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.event-value {
+    color: #da3c3c;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <h1> Jonas 20. Geburtstag </h1>
+    <form>
+        <div class="radio-group" required="true">
+            <label>
+                <input type="radio" name="teilnahme" value="komme" onclick="toggleBegruendung()"> Komme
+            </label>
+            <label>
+                <input type="radio" name="teilnahme" value="komme_mit" onclick="toggleBegruendung()"> Komme mit Begleitung
+            </label>
+            <label>
+                <input type="radio" name="teilnahme" value="nicht_komme" onclick="toggleBegruendung()"> Kann leider nicht kommen
+            </label>
+        </div>
+
+        <div id="begruendung-feld" class="hidden">
+            <label for="begruendung">Begleitung angeben:</label>
+            <textarea id="begruendung" name="begruendung" rows="4"></textarea>
+        </div>
+
+        <div id="begruendung-feld2" class="hidden">
+            <label for="begruendung2">Begründung:</label>
+            <textarea id="begruendung2" name="begruendung2" rows="4"></textarea>
+        </div>
+
+        <input type="submit" value="Absenden">
+    </form>
+
+    <form>
+    
+    <div class="event-info">
+        <div class="event-row">
+            <span class="event-label">Wann:</span>
+            <span class="event-value">16.01.2026</span>
+        </div>
+        <div class="event-row">
+            <span class="event-label">Wo:</span>
+            <span class="event-value">Diefflen</span>
+        </div>
+    </div>
+
+
+    </form>
+
+    <form>
+         <h2 style="text-align: center">
+        Location
+    </h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2394.849814267569!2d6.755453076238096!3d49.37479687140681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4795a706f84c81df%3A0x7066c0c36bebd07b!2sBeckinger%20Str.%2C%2066763%20Dillingen%2FSaar!5e1!3m2!1sde!2sde!4v1758091614533!5m2!1sde!2sde"
+    width=100%
+    height="450" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+    </form>
+    <script>
+        function toggleBegruendung() {
+            const radios = document.getElementsByName("teilnahme");
+            const feldBegleitung = document.getElementById("begruendung-feld");
+            const feldBegruendung = document.getElementById("begruendung-feld2");
+
+            let selectedValue = "";
+            for (const radio of radios) {
+                if (radio.checked) {
+                    selectedValue = radio.value;
+                    break;
+                }
+            }
+
+            // Felder zurücksetzen
+            feldBegleitung.classList.add("hidden");
+            feldBegruendung.classList.add("hidden");
+
+            // Anzeigen je nach Auswahl
+            if (selectedValue === "komme_mit") {
+                feldBegleitung.classList.remove("hidden");
+            } else if (selectedValue === "nicht_komme") {
+                feldBegruendung.classList.remove("hidden");
+            }
+        }
+    </script>
+</body>
+</html>
