@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Geburtstag</title>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+      emailjs.init("4v827_Pp5GvJdKhi3");
+    })();
+    </script>
+    <script src="script.js"></script>
     <style>
-        body {
+    
+    body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     background-color: #f4f4f4;
-}
+    }
 
-form {
+    form {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -22,115 +35,149 @@ form {
     margin-bottom: 20px;
     width: 100%;
     
-}
+    }
 
-.radio-group label {
-    display: block;
-    margin-bottom: 10px;
-}
+    .radio-group label {
+        display: block;
+        margin-bottom: 10px;
+    }
 
-.hidden {
-    display: none;
-}
+    .hidden {
+        display: none;
+    }
 
-textarea {
-    width: 100%;
-    margin-top: 10px;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
+    textarea {
+        width: 100%;
+        margin-top: 10px;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
 
-input[type="submit"] {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+    input[type="submit"] {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-input[type="submit"]:hover {
-    background-color: #0056b3;
-}
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
 
-h1 {
-    font-size: 50px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    background: linear-gradient(45deg, 
-        #FF0000, #FF7F00, #FFFF00, 
-        #00FF00, #0000FF, #4B0082, #8B00FF);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400% 400%;
-    animation: rainbowanim 10s ease infinite;
-    text-align: center;
-}
+    h1 {
+        font-size: 50px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        background: linear-gradient(45deg, 
+            #FF0000, #FF7F00, #FFFF00, 
+            #00FF00, #0000FF, #4B0082, #8B00FF);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400% 400%;
+        animation: rainbowanim 10s ease infinite;
+        text-align: center;
+    }
 
-@keyframes rainbowanim {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-.event-info {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 18px;
-}
+    @keyframes rainbowanim {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    .event-info {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 18px;
+    }
 
-.event-row {
-    display: flex;
-    justify-content: space-between;
-    background-color: #f0f0f0;
-    padding: 10px 15px;
-    border-radius: 6px;
-}
+    .event-row {
+        display: flex;
+        justify-content: space-between;
+        background-color: #f0f0f0;
+        padding: 10px 15px;
+        border-radius: 6px;
+    }
 
-.event-label {
-    font-weight: bold;
-    color: #333;
-}
+    .event-label {
+        font-weight: bold;
+        color: #333;
+    }
 
-.event-value {
-    color: #da3c3c;
-}
+    .event-value {
+        color: #da3c3c;
+    }
+    /* Stil für das Namens-Eingabefeld */
+    .input-group {
+        margin-bottom: 20px;
+    }
 
+    .input-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #333;
+    }
 
+    input[type="text"] {
+        width: 100%;
+        padding: 10px 15px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-    </style>
+    input[type="text"]:focus {
+        border-color: #007BFF;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        outline: none;
+    }
+</style>
 </head>
 <body>
     <h1> Jonas 20. Geburtstag </h1>
     <form>
+        
+        <div class="input-container">
+            <input type="text" id="name" name="name" placeholder="Gib deinen Namen ein" required>
+        </div>
+
+    </form>
+    <form id="geburtstagsForm"  method="post"> 
         <div class="radio-group" required="true">
             <label>
-                <input type="radio" name="teilnahme" value="komme" onclick="toggleBegruendung()"> Komme
+                <input type="radio" name="teilnahme" value="komme" onclick="togglebegleitung()"> Komme
             </label>
             <label>
-                <input type="radio" name="teilnahme" value="komme_mit" onclick="toggleBegruendung()"> Komme mit Begleitung
+                <input type="radio" name="teilnahme" value="komme_mit" onclick="togglebegleitung()"> Komme mit Begleitung
             </label>
             <label>
-                <input type="radio" name="teilnahme" value="nicht_komme" onclick="toggleBegruendung()"> Kann leider nicht kommen
+                <input type="radio" name="teilnahme" value="nicht_komme" onclick="togglebegleitung()"> Kann leider nicht kommen
             </label>
+        </div>
+
+        <div id="begleitung-feld" class="hidden">
+            <label for="begleitung">Begleitung angeben:</label>
+            <textarea id="begleitung" name="begleitung" rows="4"></textarea>
         </div>
 
         <div id="begruendung-feld" class="hidden">
-            <label for="begruendung">Begleitung angeben:</label>
+            <label for="begruendung">Begründung:</label>
             <textarea id="begruendung" name="begruendung" rows="4"></textarea>
         </div>
+    
+        
+        <input type="submit" onclick="sendMail()"></input>
+        
 
-        <div id="begruendung-feld2" class="hidden">
-            <label for="begruendung2">Begründung:</label>
-            <textarea id="begruendung2" name="begruendung2" rows="4"></textarea>
-        </div>
-
-        <input type="submit" value="Absenden">
     </form>
 
     <form>
@@ -163,31 +210,6 @@ h1 {
 </iframe>
 
     </form>
-    <script>
-        function toggleBegruendung() {
-            const radios = document.getElementsByName("teilnahme");
-            const feldBegleitung = document.getElementById("begruendung-feld");
-            const feldBegruendung = document.getElementById("begruendung-feld2");
 
-            let selectedValue = "";
-            for (const radio of radios) {
-                if (radio.checked) {
-                    selectedValue = radio.value;
-                    break;
-                }
-            }
-
-            // Felder zurücksetzen
-            feldBegleitung.classList.add("hidden");
-            feldBegruendung.classList.add("hidden");
-
-            // Anzeigen je nach Auswahl
-            if (selectedValue === "komme_mit") {
-                feldBegleitung.classList.remove("hidden");
-            } else if (selectedValue === "nicht_komme") {
-                feldBegruendung.classList.remove("hidden");
-            }
-        }
-    </script>
 </body>
 </html>
