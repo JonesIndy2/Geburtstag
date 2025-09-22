@@ -3,11 +3,14 @@ function sendMail(event) {
     event.preventDefault(); // Verhindert das automatische Abschicken des Formulars
 
     let parms = {
-        name: document.getElementById("name").value,
-        begleitung: document.getElementById("begleitung").value,
-        begruendung: document.getElementById("begruendung").value,
-        teilnahme: document.querySelector('input[name="teilnahme"]:checked')?.value || "",
+    name: document.getElementById("name").value,
+    begleitung: document.getElementById("begleitung").value,
+    begruendung: document.getElementById("begruendung").value,
+    teilnahme: document.querySelector('input[name="teilnahme"]:checked')?.value || "",
+    essen: document.querySelector('input[name="vegetarisch"]:checked')?.value || "",
+    getraenke: document.querySelector('input[name="trinke"]:checked')?.value || ""
     };
+
 
     emailjs.send("service_1dz1n55", "template_jschp4w", parms)
         .then(() => alert("Email gesendet!!"))

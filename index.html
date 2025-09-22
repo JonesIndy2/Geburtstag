@@ -23,11 +23,11 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #77dd96;
     }
 
     form {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -173,6 +173,26 @@
             <label for="begruendung">Begründung:</label>
             <textarea id="begruendung" name="begruendung" rows="4"></textarea>
         </div>
+
+        <!-- Vegetarisch Ja/Nein -->
+        <div class="radio-group" required="true">
+            <label>
+                <input type="radio" name="vegetarisch" value="ja"> vegetarisch           
+            </label>
+            <label>
+                <input type="radio" name="vegetarisch" value="nein"> Ich esse Fleisch
+            </label>
+        </div>
+
+        <!-- Trinke Alkohol Ja/Nein -->
+        <div class="radio-group" required="true">
+            <label>
+                <input type="radio" name="trinke" value="ja"> Ich trinke Alkohol
+            </label>
+            <label>
+                <input type="radio" name="trinke" value="nein"> Ich trinke nicht             
+            </label>
+        </div>
     
         
         <input type="submit" onclick="sendMail()"></input>
@@ -190,6 +210,10 @@
         <div class="event-row">
             <span class="event-label">Wo:</span>
             <span class="event-value">Diefflen</span>
+        </div>
+        <div class="event-row">
+            <span class="event-label">Essen:</span>
+            <span class="event-value">Lasagne</span>
         </div>
     </div>
 
