@@ -1,3 +1,4 @@
+
 // Funktion zum Senden der E-Mail
 function sendMail(event) {
     event.preventDefault(); // Verhindert das automatische Abschicken des Formulars
@@ -11,11 +12,31 @@ function sendMail(event) {
     getraenke: document.querySelector('input[name="trinke"]:checked')?.value || ""
     };
 
+    //emailjs.send("service_1dz1n55", "template_jschp4w", parms)
 
-    emailjs.send("service_1dz1n55", "template_jschp4w", parms)
-        .then(() => alert("Email gesendet!!"))
-        .catch((error) => alert("Fehler beim Senden: " + error));
+   
+      
+Swal.fire({
+  title: "Sehr schön!",
+  text: "Deine Daten wurden gespeichert.",
+  icon: "success",
+  width: "auto",
+  position: "top",
+  background: "#ffffffff",
+  color: "#000000ff", // schriftfarbe
+  showConfirmButton: false,
+  timer: 7500,
+  timerProgressBar: true,
+  customClass: {
+    popup: 'mein-popup',
+    confirmButton: 'mein-button'
+  }
+});
+
+    
 }
+
+
 
 // Funktion zum Anzeigen/Verstecken der Textfelder je nach Auswahl
 function togglebegleitung() {
@@ -35,9 +56,9 @@ function togglebegleitung() {
     feldBegleitung.classList.add("hidden");
     feldBegruendung.classList.add("hidden");
 
-    if (selectedValue === "komme_mit") {
+    if (selectedValue === "komme_mit_begleitung") {
         feldBegleitung.classList.remove("hidden");
-    } else if (selectedValue === "nicht_komme") {
+    } else if (selectedValue === "komme_nicht") {
         feldBegruendung.classList.remove("hidden");
     }
 }
@@ -49,3 +70,4 @@ document.addEventListener("DOMContentLoaded", function () {
         form.addEventListener("submit", sendMail);
     }
 });
+
