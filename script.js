@@ -25,7 +25,7 @@ Swal.fire({
   background: "#ffffffff",
   color: "#000000ff", // schriftfarbe
   showConfirmButton: false,
-  timer: 7500,
+  timer: 6500,
   timerProgressBar: true,
   customClass: {
     popup: 'mein-popup',
