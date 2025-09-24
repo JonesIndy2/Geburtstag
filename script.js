@@ -12,7 +12,7 @@ function sendMail(event) {
     getraenke: document.querySelector('input[name="trinke"]:checked')?.value || ""
     };
 
-    //emailjs.send("service_1dz1n55", "template_jschp4w", parms)
+    emailjs.send("service_1dz1n55", "template_jschp4w", parms)
 
    
       
