@@ -79,67 +79,55 @@
         background-color: #0056b3;
     }
 
-    
-
-    h1 {
+h1 {
   font-size: 50px;
   font-weight: bold;
-  margin-bottom: 30px;
-  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 2px;
+  padding: 10px;
   text-align: center;
-  background-color: white;
-  border-radius: 12px;
 
-  /* Rainbow-Text */
-  background: linear-gradient(45deg, 
-    #FF0000, #FF7F00, #FFFF00, 
-    #00FF00, #0000FF, #4B0082, #8B00FF);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 400% 400%;
-  animation: rainbowanim 10s linear infinite;
+}
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
 
-  /* Rainbow-Glow (synchron animiert) */
-
-text-shadow:
-    0 0 8px rgba(255,0,0,0.4),
-    0 0 16px rgba(255,127,0,0.3),
-    0 0 24px rgba(255,255,0,0.2),
-    0 0 32px rgba(0,255,0,0.15),
-    0 0 40px rgba(0,0,255,0.12),
-    0 0 48px rgba(75,0,130,0.10),
-    0 0 56px rgba(139,0,255,0.08);
-  animation: rainbowanim 10s linear infinite, glowanim 10s linear infinite;
 }
 
-
-@keyframes rainbowanim {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* flipY class and keyframes*/
+.flipY {
+  animation-name: spin, depth;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
 }
-
-
-@keyframes glowanim {
+@keyframes spin {
   0% {
-    text-shadow:
-      1px 1px 2px red,
-      0 0 1em blue,
-      0 0 0.2em blue;
+    transform: rotateY(0deg);
   }
   100% {
-    text-shadow:
-      2px 2px 8px yellow,
-      0 0 2em cyan,
-      0 0 0.4em cyan;
+    transform: rotateY(-360deg);
   }
 }
-
-
-
-
-
+@keyframes depth {
+  from {
+    color: #6666ff;
+  }
+  10% {
+    color: #0099ff;
+  }
+  50% {
+    color: #00ff00;
+  }
+  75% {
+    color: #ff3399;
+  }
+  100% {
+    color: #6666ff;
+  }
+}
 
 
     .event-info {
@@ -199,7 +187,9 @@ text-shadow:
 </style>
 </head>
 <body>
-    <h1> Jonas 20. Geburtstag </h1>
+    <div class='line'>
+    <h1 class='flipY'>20. Geburtstag Jonas</h1>
+  </div>
     <form id="geburtstagsForm"  method="post"> 
         <div class="input-container" required="true">
             <input type="text" id="name" name="name" placeholder="Gib deinen Namen ein" required>
@@ -255,7 +245,7 @@ text-shadow:
     <div class="event-info">
         <div class="event-row">
             <span class="event-label">Wann:</span>
-            <span class="event-value">16.01.2026 19 Uhr</span>
+            <span class="event-value">16.01.2026 20 Uhr</span>
         </div>
         <div class="event-row">
             <span class="event-label">Wo:</span>
@@ -271,9 +261,11 @@ text-shadow:
     </form>
 
     <form>
-         <h2 style="text-align: center">
-        Location
-    </h2>
+    <div class="event-info">
+        <div class="event-row">
+            <span class="event-label">Karte:</span>
+        </div>     
+        </div>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2394.849814267569!2d6.755453076238096!3d49.37479687140681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4795a706f84c81df%3A0x7066c0c36bebd07b!2sBeckinger%20Str.%2C%2066763%20Dillingen%2FSaar!5e1!3m2!1sde!2sde!4v1758091614533!5m2!1sde!2sde"
     width=100%
     height="450" 

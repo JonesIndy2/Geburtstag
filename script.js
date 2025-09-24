@@ -17,7 +17,7 @@ function sendMail(event) {
    
       
 Swal.fire({
-  title: "Sehr schön!",
+  title: "Vielen Dank!",
   text: "Deine Daten wurden gespeichert.",
   icon: "success",
   width: "auto",
